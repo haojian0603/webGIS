@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/haojian0603/icon/main/favicon.ico">
+  <title>新兴县WebGIS</title>
+  <link href="https://raw.githubusercontent.com/haojian0603/webGIS/main/WebGIS_xinxing/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 2px;
+      height: 85vh;
+    }
+  </style>
+  <link href="https://raw.githubusercontent.com/haojian0603/webGIS/main/WebGIS_xinxing/css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+  <div style="height: 80%;" class="container-fluid text-left">
+    <div class="container-fluid col-sm-12 p-1">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">新兴县数据库设计与系统开发</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li>
+                <nav class="navbar bg-body-tertiary">
+                  <div class="container-fluid">
+                    <button class="navbar-brand" style="border-radius: 13px;" id="rotate-left" href="#">
+                      <img src="https://raw.githubusercontent.com/haojian0603/icon/main/arrow-clockwise.svg" alt="Logo"
+                        width="30" height="24" title="顺时针旋转" class="d-inline-block align-text-top">
+                    </button>
+                  </div>
+                </nav>
+              </li>
+              <li class="nav-item">
+                <nav class="navbar bg-body-tertiary">
+                  <div class="container-fluid">
+                    <button class="navbar-brand" style="border-radius: 13px;" id="rotate-right" href="#">
+                      <img src="https://raw.githubusercontent.com/haojian0603/icon/main/arrow-counterclockwise.svg"
+                        alt="Logo" width="30" height="24" title="逆时针旋转" class="d-inline-block align-text-top">
+                    </button>
+                  </div>
+                </nav>
+              </li>
+              <li class="nav-item">
+                <nav class="navbar bg-body-tertiary">
+                  <div class="container-fluid">
+                    <button class="navbar-brand" style="border-radius: 13px;" id="pan-to-feicheng" href="#">
+                      <img src="https://raw.githubusercontent.com/haojian0603/icon/main/geo-alt.svg" alt="Logo" width="30"
+                        height="24" title="逆时针旋转" class="d-inline-block align-text-top">
+                    </button>
+                  </div>
+                </nav>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  要素操作
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">信息查询</a></li>
+                  <li><a class="dropdown-item" href="#">信息添加</a></li>
+                  <li><a class="dropdown-item" href="#">信息修改</a></li>
+                </ul>
+              </li>
+              <li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-sm p-1">
+      <main class="d-flex flex-nowrap border">
+        <div class="flex-shrink-0 p-1 bg-white" style="width: 170px;">
+          <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+            <span class="fs-5 fw-semibold">&nbsp;&nbsp;&nbsp;导航栏</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                地图
+              </button>
+              <div class="collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" target="show" class="link-dark d-inline-flex text-decoration-none rounded">底图浏览</a>
+                  </li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">影像地图</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">全要素地图</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                工具
+              </button>
+              <div class="collapse show" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">坐标拾取</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">没想好</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">没想好*2</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">没想好*3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                要素图层
+              </button>
+              <div class="collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">查询</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">添加</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">删除</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">修改</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                账户
+              </button>
+              <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">换一个账户</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">设置</a></li>
+                  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">退出账号</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="b-example-divider b-example-vr"></div>
+        <div class="col">
+          <iframe name="sho" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+        </div>
+      </main>
+    </div>
+    <div></div>
+  </div>
+  <script src="https://raw.githubusercontent.com/haojian0603/webGIS/main/WebGIS_xinxing/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
